@@ -21,7 +21,7 @@ import re
 
 app = Flask(__name__)
 
-UPLOAD_FOLDER = '/data/ai/gaurav/flask/uploads'
+UPLOAD_FOLDER = '/data/flask/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024  # 100 MB limit
 
@@ -30,8 +30,8 @@ if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
     print(f"Created upload folder: {UPLOAD_FOLDER}")
 
-model_id = '/data/ai/gaurav/llama-2-7b-chat-hf'
-hf_auth = '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'
+model_id = '/data/llama-2-7b-chat-hf'
+hf_auth = 'auth_token'
 device = f'cuda:{torch.cuda.current_device()}' if torch.cuda.is_available() else 'cpu'
 
 model = None
